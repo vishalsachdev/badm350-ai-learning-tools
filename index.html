@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BADM 350 AI-Enhanced Learning Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        
+        .course-info {
+            font-size: 1.1em;
+            opacity: 0.8;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .tool-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .tool-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .tool-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .tool-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        
+        .tool-features li {
+            padding: 5px 0;
+            color: #555;
+        }
+        
+        .tool-features li:before {
+            content: "✓ ";
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .launch-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .launch-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .info-section {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            color: white;
+        }
+        
+        .info-section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 BADM 350 AI Learning Tools</h1>
+            <div class="subtitle">Interactive Business Strategy Education</div>
+            <div class="course-info">Module 3: E-commerce, Business Models & Network Effects</div>
+        </div>
+        
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">🎯</div>
+                <div class="tool-title">Business Model Explorer</div>
+                <div class="tool-description">
+                    Interactive tool for understanding and analyzing digital business models. Explore real companies and learn the 6 core online business models.
+                </div>
+                <ul class="tool-features">
+                    <li>6 Interactive business model types</li>
+                    <li>Real company examples and case studies</li>
+                    <li>Network effects simulator</li>
+                    <li>Company analysis framework</li>
+                    <li>Gamified knowledge checks</li>
+                </ul>
+                <a href="business-model-explorer.html" class="launch-btn">🚀 Launch Explorer</a>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">🤖</div>
+                <div class="tool-title">AI Discussion Enhancer</div>
+                <div class="tool-description">
+                    Smart discussion prompts and peer assessment tools powered by AI. Get personalized questions based on your learning level and chosen companies.
+                </div>
+                <ul class="tool-features">
+                    <li>Personalized discussion prompts</li>
+                    <li>AI-guided peer assessment</li>
+                    <li>Learning path recommendations</li>
+                    <li>Achievement tracking system</li>
+                    <li>Smart feedback generation</li>
+                </ul>
+                <a href="ai-discussion-enhancer.html" class="launch-btn">💬 Start Discussions</a>
+            </div>
+            
+            <div class="tool-card">
+                <div class="tool-icon">🎮</div>
+                <div class="tool-title">Network Effects Game</div>
+                <div class="tool-description">
+                    Strategic simulation game where you build networks and understand how network effects create value. Experience Metcalfe's Law in action!
+                </div>
+                <ul class="tool-features">
+                    <li>Real-time network simulation</li>
+                    <li>Three business model scenarios</li>
+                    <li>Metcalfe's Law visualization</li>
+                    <li>Strategic decision making</li>
+                    <li>Performance analytics</li>
+                </ul>
+                <a href="network-effects-game.html" class="launch-btn">🎮 Play Game</a>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h2>🌟 Learning Innovation</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px;">
+                These tools transform traditional business education through AI-enhanced, interactive learning experiences that mirror the digital innovation happening in today's business world.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>🧠 AI-Powered</h3>
+                    <p>Adaptive learning that adjusts to your pace and style</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🎯 Authentic</h3>
+                    <p>Real company examples and current business models</p>
+                </div>
+                <div class="feature-item">
+                    <h3>🤝 Collaborative</h3>
+                    <p>Enhanced peer learning and assessment tools</p>
+                </div>
+                <div class="feature-item">
+                    <h3>📱 Responsive</h3>
+                    <p>Works seamlessly on all devices and platforms</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h2>📚 For Instructors</h2>
+            <p style="text-align: center; font-size: 1.1em; margin-bottom: 20px;">
+                These open-source tools are designed for easy customization and integration into your courses. Fork the repository, adapt the content, and enhance your students' learning experience.
+            </p>
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://github.com/vishalsachdev/badm350-ai-learning-tools" class="launch-btn" style="width: auto; padding: 15px 40px;">
+                    📂 View on GitHub
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Created for BADM 350 - Information Systems for Managers</p>
+            <p>University of Illinois • Professor Vishal Sachdev</p>
+            <p style="margin-top: 20px;">🚀 Transforming Business Education Through AI</p>
+        </div>
+    </div>
+</body>
+</html>
