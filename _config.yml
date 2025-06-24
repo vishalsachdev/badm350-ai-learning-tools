@@ -1,0 +1,12 @@
+# GitHub Pages configuration
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+
+include:
+  - "*.html"
+
+exclude:
+  - README.md
+
+# GitHub Pages will automatically serve index.html as the home page
