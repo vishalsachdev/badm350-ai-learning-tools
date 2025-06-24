@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Discussion Enhancer - Module 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 10px;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            margin: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .nav-tab.active {
+            background: white;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .content-panel {
+            display: none;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+
+        .content-panel.active {
+            display: block;
+        }
+
+        .discussion-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .discussion-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .beginner { background: #4caf50; }
+        .intermediate { background: #ff9800; }
+        .advanced { background: #f44336; }
+
+        .thinking-prompt {
+            background: #fff9c4;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.9);
+            color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-link:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .company-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .company-card {
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .company-card:hover {
+            border-color: #3498db;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+
+        .company-card.selected {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            border-color: #3498db;
+        }
+
+        .ai-suggestion {
+            background: linear-gradient(135deg, #e1f5fe, #b3e5fc);
+            border: 2px solid #03a9f4;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .prompt-generator {
+            background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border: 2px solid #4caf50;
+        }
+
+        .rubric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .rubric-item {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .score-input {
+            width: 60px;
+            padding: 8px;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+            margin: 10px;
+        }
+
+        .feedback-generator {
+            background: #f1f8e9;
+            border: 2px solid #8bc34a;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .nav-tab {
+                width: 100%;
+                margin: 2px;
+            }
+            
+            .company-selector {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Tools</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1>🤖 AI Discussion Enhancer</h1>
+            <p>Smart prompts, peer assessment, and gamified learning for Module 3</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showPanel('generator')">Discussion Generator</button>
+            <button class="nav-tab" onclick="showPanel('assessment')">Peer Assessment</button>
+            <button class="nav-tab" onclick="showPanel('feedback')">AI Feedback</button>
+        </div>
+
+        <!-- Discussion Generator Panel -->
+        <div id="generator" class="content-panel active">
+            <h2>🎯 Smart Discussion Prompt Generator</h2>
+            
+            <div class="prompt-generator">
+                <h3>🔮 Generate Personalized Discussion Prompts</h3>
+                <p>Select a company and get AI-generated discussion questions tailored to your learning level:</p>
+                
+                <div class="company-selector">
+                    <div class="company-card" onclick="selectCompany('netflix')">
+                        <h4>📺 Netflix</h4>
+                        <p>Streaming revolution</p>
+                    </div>
+                    <div class="company-card" onclick="selectCompany('uber')">
+                        <h4>🚗 Uber</h4>
+                        <p>Platform marketplace</p>
+                    </div>
+                    <div class="company-card" onclick="selectCompany('facebook')">
+                        <h4>📱 Meta/Facebook</h4>
+                        <p>Social network effects</p>
+                    </div>
+                    <div class="company-card" onclick="selectCompany('amazon')">
+                        <h4>📦 Amazon</h4>
+                        <p>Multiple business models</p>
+                    </div>
+                    <div class="company-card" onclick="selectCompany('spotify')">
+                        <h4>🎵 Spotify</h4>
+                        <p>Freemium model</p>
+                    </div>
+                    <div class="company-card" onclick="selectCompany('airbnb')">
+                        <h4>🏠 Airbnb</h4>
+                        <p>Two-sided marketplace</p>
+                    </div>
+                </div>
+
+                <label for="difficulty">Choose your challenge level:</label>
+                <select id="difficulty" class="btn" style="background: white; color: #333; margin: 10px 0;">
+                    <option value="beginner">🌱 Beginner - Identify and explain</option>
+                    <option value="intermediate">🚀 Intermediate - Analyze and compare</option>
+                    <option value="advanced">🔥 Advanced - Synthesize and predict</option>
+                </select>
+
+                <button class="btn" onclick="generatePrompt()">🎲 Generate My Discussion Prompt</button>
+            </div>
+
+            <div id="generated-prompts" class="ai-suggestion" style="display: none;">
+                <h3>🎯 Your Personalized Discussion Prompts</h3>
+                <div id="prompt-content"></div>
+            </div>
+
+            <div class="discussion-card">
+                <span class="difficulty-badge beginner">BEGINNER</span>
+                <h3>🔍 Business Model Detective</h3>
+                <p><strong>Choose a company you use daily and answer:</strong></p>
+                <ul style="margin: 15px 0 15px 20px;">
+                    <li>How does this company make money? (Be specific about revenue streams)</li>
+                    <li>Which of the 6 digital business models does it primarily use?</li>
+                    <li>Does it exhibit network effects? If so, which type?</li>
+                    <li>What would make you switch to a competitor? (Switching costs analysis)</li>
+                </ul>
+                <div class="thinking-prompt">
+                    💡 <strong>Think deeper:</strong> Many companies use multiple business models. Can you identify a secondary model your chosen company uses?
+                </div>
+            </div>
+
+            <div class="discussion-card">
+                <span class="difficulty-badge intermediate">INTERMEDIATE</span>
+                <h3>⚔️ The Netflix vs. Blockbuster Case Study</h3>
+                <p><strong>Analyze the disruption through our Module 3 frameworks:</strong></p>
+                <ul style="margin: 15px 0 15px 20px;">
+                    <li>Compare Blockbuster's and Netflix's business models using the "atoms to bits" framework</li>
+                    <li>How did network effects play a role in Netflix's victory?</li>
+                    <li>What switching costs kept customers loyal to each service initially?</li>
+                    <li>Apply the Long Tail concept: How did Netflix's inventory strategy differ from Blockbuster's?</li>
+                </ul>
+                <div class="thinking-prompt">
+                    🤔 <strong>Critical thinking:</strong> Could Blockbuster have survived with a different strategy? What would you have advised their CEO in 2005?
+                </div>
+            </div>
+
+            <div class="discussion-card">
+                <span class="difficulty-badge advanced">ADVANCED</span>
+                <h3>🔮 Future Business Model Prediction</h3>
+                <p><strong>Apply Module 3 concepts to predict the future:</strong></p>
+                <ul style="margin: 15px 0 15px 20px;">
+                    <li>Choose an emerging technology (AI, VR, blockchain, IoT) and predict what new business models it might enable</li>
+                    <li>Analyze how network effects might work differently in your predicted models</li>
+                    <li>What new types of switching costs might emerge?</li>
+                    <li>How might the Long Tail concept apply to your chosen technology?</li>
+                </ul>
+                <div class="thinking-prompt">
+                    🚀 <strong>Innovation challenge:</strong> Design a business model that doesn't exist yet but could emerge from your chosen technology. Defend its viability using our frameworks.
+                </div>
+            </div>
+        </div>
+
+        <!-- Peer Assessment Panel -->
+        <div id="assessment" class="content-panel">
+            <h2>📊 Smart Peer Assessment Tool</h2>
+            
+            <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 10px; padding: 20px; margin: 20px 0;">
+                <h3>🎯 AI-Guided Peer Review</h3>
+                <p>Use this structured approach to provide helpful feedback to your classmates:</p>
+                
+                <div class="rubric-grid">
+                    <div class="rubric-item">
+                        <h4>🎯 Concept Application</h4>
+                        <p>How well did they apply Module 3 frameworks?</p>
+                        <input type="number" class="score-input" min="1" max="5" placeholder="1-5">
+                        <p><small>5 = Masterful application of multiple concepts</small></p>
+                    </div>
+                    
+                    <div class="rubric-item">
+                        <h4>💡 Original Thinking</h4>
+                        <p>Did they provide unique insights or connections?</p>
+                        <input type="number" class="score-input" min="1" max="5" placeholder="1-5">
+                        <p><small>5 = Novel insights that made me think differently</small></p>
+                    </div>
+                    
+                    <div class="rubric-item">
+                        <h4>📊 Evidence Quality</h4>
+                        <p>How well did they support their arguments?</p>
+                        <input type="number" class="score-input" min="1" max="5" placeholder="1-5">
+                        <p><small>5 = Strong evidence with specific examples</small></p>
+                    </div>
+                    
+                    <div class="rubric-item">
+                        <h4>🔗 Connections</h4>
+                        <p>Did they connect concepts to real-world examples?</p>
+                        <input type="number" class="score-input" min="1" max="5" placeholder="1-5">
+                        <p><small>5 = Clear, relevant real-world connections</small></p>
+                    </div>
+                </div>
+
+                <button class="btn" onclick="generateFeedback()">🤖 Generate AI Feedback Suggestions</button>
+                
+                <div id="feedback-suggestions" class="ai-suggestion" style="display: none;">
+                    <h4>💬 Suggested Feedback Comments</h4>
+                    <div id="feedback-content"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Feedback Panel -->
+        <div id="feedback" class="content-panel">
+            <h2>🤖 AI Learning Assistant</h2>
+            
+            <div class="ai-suggestion">
+                <h3>💡 Personalized Learning Recommendations</h3>
+                
+                <div class="thinking-prompt">
+                    <strong>Based on your progress, here are your next steps:</strong>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>✅ <strong>Mastered:</strong> Digital business model identification</li>
+                        <li>🔄 <strong>Review:</strong> Network effects types and examples</li>
+                        <li>🎯 <strong>Practice:</strong> Long tail analysis with real companies</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feedback-generator">
+                <h3>💬 Ask Your AI Study Buddy</h3>
+                <textarea id="student-question" placeholder="Ask any question about Module 3 concepts..." rows="4" style="width: 100%; padding: 15px; border: 2px solid #dee2e6; border-radius: 10px; margin: 10px 0;"></textarea>
+                <button class="btn" onclick="askAI()">🤖 Get AI Help</button>
+                
+                <div id="ai-response" class="ai-suggestion" style="display: none;">
+                    <h4>🎯 AI Study Buddy Response</h4>
+                    <div id="ai-answer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let selectedCompany = '';
+        
+        const companyData = {
+            netflix: {
+                name: "Netflix",
+                models: ["Subscription", "Data Network Effects"],
+                prompts: {
+                    beginner: "How did Netflix's subscription model differ from Blockbuster's rental model? What switching costs kept customers loyal to each service?",
+                    intermediate: "Analyze Netflix's evolution from DVD-by-mail to streaming. How did network effects change between these two business models?",
+                    advanced: "Predict how Netflix's business model might evolve with AI and VR technologies. What new network effects might emerge?"
+                }
+            },
+            uber: {
+                name: "Uber",
+                models: ["Platform/Marketplace", "Network Effects"],
+                prompts: {
+                    beginner: "Explain how Uber creates value for both drivers and riders. What type of network effects does Uber exhibit?",
+                    intermediate: "Compare Uber's platform model to traditional taxi companies. How do switching costs differ between the two?",
+                    advanced: "How might autonomous vehicles change Uber's business model and network effects? Design a future scenario."
+                }
+            },
+            facebook: {
+                name: "Meta/Facebook",
+                models: ["Advertising", "Social Network Effects"],
+                prompts: {
+                    beginner: "How does Facebook make money if it's free to users? Identify the specific business model and revenue streams.",
+                    intermediate: "Analyze Facebook's network effects: Why does the value increase with each new user? What switching costs keep users on the platform?",
+                    advanced: "Evaluate Facebook's expansion into VR (Meta). How might this change their business model and create new network effects?"
+                }
+            },
+            amazon: {
+                name: "Amazon",
+                models: ["E-commerce", "Marketplace", "Platform", "Subscription"],
+                prompts: {
+                    beginner: "List Amazon's different business models (hint: there are at least 4). How do they make money from each?",
+                    intermediate: "Analyze how Amazon's different business models reinforce each other. How do network effects work across their ecosystem?",
+                    advanced: "Design a strategy for competing with Amazon. Which of their business models would be hardest to replicate and why?"
+                }
+            },
+            spotify: {
+                name: "Spotify",
+                models: ["Freemium", "Subscription", "Data Network Effects"],
+                prompts: {
+                    beginner: "Explain Spotify's freemium model. What features do they limit to encourage premium subscriptions?",
+                    intermediate: "Compare Spotify's business model to traditional music sales (CDs, iTunes). How did the shift to streaming change the industry?",
+                    advanced: "Analyze Spotify's use of data and AI for recommendations. How do these create network effects and switching costs?"
+                }
+            },
+            airbnb: {
+                name: "Airbnb",
+                models: ["Platform/Marketplace", "Network Effects"],
+                prompts: {
+                    beginner: "How does Airbnb make money? Explain their marketplace model and what value they provide to hosts and guests.",
+                    intermediate: "Analyze Airbnb's network effects. How do more hosts attract more guests and vice versa? What switching costs exist?",
+                    advanced: "Compare Airbnb's asset-light model to traditional hotels. How might hotels respond to maintain competitiveness?"
+                }
+            }
+        };
+
+        function showPanel(panelName) {
+            document.querySelectorAll('.content-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            document.getElementById(panelName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function selectCompany(company) {
+            document.querySelectorAll('.company-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            event.target.classList.add('selected');
+            selectedCompany = company;
+        }
+
+        function generatePrompt() {
+            if (!selectedCompany) {
+                alert('Please select a company first!');
+                return;
+            }
+
+            const difficulty = document.getElementById('difficulty').value;
+            const company = companyData[selectedCompany];
+            
+            let promptHTML = `
+                <h4>🎯 Discussion Prompt for ${company.name}</h4>
+                <div class="thinking-prompt">
+                    <strong>Your personalized question:</strong><br>
+                    ${company.prompts[difficulty]}
+                </div>
+                
+                <h5>💡 Framework Reminders:</h5>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li><strong>Business Models:</strong> ${company.models.join(', ')}</li>
+                </ul>
+                
+                <h5>🎯 Success Tips:</h5>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>Use specific examples and data when possible</li>
+                    <li>Connect to at least 2 Module 3 frameworks</li>
+                    <li>Explain your reasoning step-by-step</li>
+                    <li>Consider counterarguments to strengthen your analysis</li>
+                </ul>
+            `;
+
+            document.getElementById('prompt-content').innerHTML = promptHTML;
+            document.getElementById('generated-prompts').style.display = 'block';
+        }
+
+        function generateFeedback() {
+            const feedbackHTML = `
+                <h5>🎯 Suggested Feedback Based on Assessment:</h5>
+                <div class="thinking-prompt">
+                    <strong>Constructive feedback examples:</strong>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li>"Your application of [specific framework] was particularly insightful because..."</li>
+                        <li>"I hadn't considered [specific point], which shows great analytical thinking."</li>
+                        <li>"Your connection between [concept] and [real-world example] really strengthened your argument."</li>
+                        <li>"Consider exploring how [additional framework] might provide more insight."</li>
+                    </ul>
+                </div>
+                
+                <h5>💡 Questions to encourage deeper thinking:</h5>
+                <ul style="margin: 10px 0 0 20px;">
+                    <li>"What would happen if [specific variable] changed in your analysis?"</li>
+                    <li>"How does your conclusion compare to [alternative perspective]?"</li>
+                    <li>"What assumptions are you making, and how might different assumptions change your analysis?"</li>
+                </ul>
+            `;
+
+            document.getElementById('feedback-content').innerHTML = feedbackHTML;
+            document.getElementById('feedback-suggestions').style.display = 'block';
+        }
+
+        function askAI() {
+            const question = document.getElementById('student-question').value;
+            if (!question.trim()) {
+                alert('Please enter a question first!');
+                return;
+            }
+
+            let response = "";
+            const lowerQuestion = question.toLowerCase();
+
+            if (lowerQuestion.includes('network effect')) {
+                response = `
+                    <p><strong>Great question about network effects!</strong></p>
+                    <p>Network effects occur when a product becomes more valuable as more people use it. Think of this analogy: a telephone is useless if you're the only person who has one, but becomes incredibly valuable when everyone has one.</p>
+                    <p><strong>The three main types are:</strong></p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li><strong>Direct:</strong> Facebook - more friends = more value for you</li>
+                        <li><strong>Indirect:</strong> iPhone - more users = more apps = more value</li>
+                        <li><strong>Data:</strong> Google Search - more users = better results for everyone</li>
+                    </ul>
+                    <p>💡 <strong>Study tip:</strong> Try to identify which type applies to companies you use daily!</p>
+                `;
+            } else if (lowerQuestion.includes('business model')) {
+                response = `
+                    <p><strong>Business models are the foundation of digital success!</strong></p>
+                    <p>Think of a business model as answering: "How do we create and capture value?" It's like a recipe for making money.</p>
+                    <p><strong>The 6 key digital models:</strong></p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li><strong>Freemium:</strong> Spotify (free + premium)</li>
+                        <li><strong>Subscription:</strong> Netflix (monthly payments)</li>
+                        <li><strong>Marketplace:</strong> Amazon (connecting buyers/sellers)</li>
+                        <li><strong>Advertising:</strong> Google (free service, ad revenue)</li>
+                        <li><strong>Platform:</strong> App Store (enabling others to sell)</li>
+                        <li><strong>SaaS:</strong> Salesforce (software as service)</li>
+                    </ul>
+                    <p>🎯 <strong>Practice:</strong> Pick a company and try to identify which model(s) they use!</p>
+                `;
+            } else {
+                response = `
+                    <p><strong>Great question!</strong> Here are some ways to think about Module 3 concepts:</p>
+                    <ul style="margin: 10px 0 0 20px;">
+                        <li><strong>Business Models:</strong> How does the company make money?</li>
+                        <li><strong>Network Effects:</strong> Does the product get better with more users?</li>
+                        <li><strong>Long Tail:</strong> Can digital distribution serve niche markets profitably?</li>
+                    </ul>
+                    <p>💡 <strong>Try this:</strong> Pick a company you know well and analyze it using all three frameworks!</p>
+                `;
+            }
+
+            document.getElementById('ai-answer').innerHTML = response;
+            document.getElementById('ai-response').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
