@@ -210,6 +210,226 @@
             border-left: 5px solid #667eea;
         }
         
+        /* Network Effects Simulator Styles */
+        .network-types {
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .network-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .network-type-btn {
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .network-type-btn:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .network-type-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .simulation-area {
+            background: #f8f9ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .simulation-controls {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        
+        .sim-btn {
+            border: none;
+            border-radius: 8px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .sim-btn.primary {
+            background: #667eea;
+            color: white;
+        }
+        
+        .sim-btn.secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .sim-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .visualization-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+        
+        .network-graph, .growth-chart {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .network-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+        }
+        
+        .legend-color {
+            width: 20px;
+            height: 3px;
+            border-radius: 2px;
+        }
+        
+        .legend-color.linear {
+            background: #28a745;
+        }
+        
+        .legend-color.network {
+            background: #667eea;
+        }
+        
+        .network-education {
+            margin: 30px 0;
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .education-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 4px solid #667eea;
+        }
+        
+        .education-card h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .education-card p {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .examples-section {
+            margin: 30px 0;
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .example-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .example-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .example-logo {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .example-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .example-details {
+            background: #f8f9ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
+        
         @media (max-width: 768px) {
             .tabs {
                 flex-direction: column;
@@ -227,6 +447,27 @@
             .header h1 {
                 font-size: 2em;
             }
+            
+            .visualization-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .network-buttons {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .sim-btn {
+                width: 200px;
+            }
+            
+            .education-grid, .examples-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -241,8 +482,7 @@
         
         <div class="tabs">
             <button class="tab-button active" onclick="showTab('models', this)">Business Models</button>
-            <button class="tab-button" onclick="showTab('network', this)">Network Effects</button>
-            <button class="tab-button" onclick="showTab('analyzer', this)">Company Analyzer</button>
+            <button class="tab-button" onclick="showTab('network', this)">Network Effects Simulator</button>
         </div>
         
         <!-- Business Models Tab -->
@@ -297,55 +537,215 @@
         
         <!-- Network Effects Tab -->
         <div id="network" class="tab-content">
-            <h2>Network Effects Simulator</h2>
-            <p>Add users to see how network value grows with network size:</p>
+            <h2>🌐 Advanced Network Effects Simulator</h2>
+            <p>Experience how different types of networks create exponential value growth:</p>
             
-            <div class="network-visualization">
-                <div id="network-nodes"></div>
-                <p>Users in network: <span id="user-count">0</span></p>
-                <p>Network value: <span id="network-value">0</span></p>
-                <button class="analyze-btn" onclick="addUser()">Add User</button>
-                <button class="analyze-btn" onclick="resetNetwork()">Reset Network</button>
+            <!-- Network Type Selector -->
+            <div class="network-types">
+                <h3>Choose Network Type:</h3>
+                <div class="network-buttons">
+                    <button class="network-type-btn active" onclick="setNetworkType('social')">
+                        👥 Social Network<br><small>Facebook, LinkedIn</small>
+                    </button>
+                    <button class="network-type-btn" onclick="setNetworkType('marketplace')">
+                        🏪 Marketplace<br><small>Uber, Airbnb</small>
+                    </button>
+                    <button class="network-type-btn" onclick="setNetworkType('platform')">
+                        🌐 Platform<br><small>iOS, Android</small>
+                    </button>
+                    <button class="network-type-btn" onclick="setNetworkType('communication')">
+                        📞 Communication<br><small>WhatsApp, Zoom</small>
+                    </button>
+                </div>
             </div>
             
-            <div class="insight-box">
-                <h3>🔗 Understanding Network Effects</h3>
-                <p><strong>Metcalfe's Law:</strong> The value of a network is proportional to the square of the number of users.</p>
-                <p><strong>Examples:</strong></p>
-                <ul style="margin: 10px 0 0 20px;">
-                    <li><strong>Social Networks:</strong> Facebook, LinkedIn - more friends = more value</li>
-                    <li><strong>Communication:</strong> WhatsApp, Zoom - value increases with more contacts</li>
-                    <li><strong>Marketplaces:</strong> eBay, Uber - more buyers attract more sellers and vice versa</li>
-                </ul>
+            <!-- Interactive Simulation -->
+            <div class="simulation-area">
+                <div class="simulation-controls">
+                    <h3 id="network-title">Social Network Simulation</h3>
+                    <p id="network-description">Each user can connect to every other user, creating exponential value growth</p>
+                    
+                    <div class="controls">
+                        <button class="sim-btn primary" onclick="addUsers(1)">+1 User</button>
+                        <button class="sim-btn primary" onclick="addUsers(5)">+5 Users</button>
+                        <button class="sim-btn primary" onclick="addUsers(10)">+10 Users</button>
+                        <button class="sim-btn secondary" onclick="resetSimulation()">Reset</button>
+                        <button class="sim-btn secondary" onclick="autoGrow()">Auto Grow</button>
+                    </div>
+                </div>
+                
+                <div class="visualization-grid">
+                    <!-- Network Graph -->
+                    <div class="network-graph">
+                        <h4>Network Visualization</h4>
+                        <div id="graph-container">
+                            <svg id="network-svg" width="300" height="250"></svg>
+                        </div>
+                        <div class="network-stats">
+                            <div class="stat">
+                                <span class="stat-number" id="user-count">0</span>
+                                <span class="stat-label">Users</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="connections">0</span>
+                                <span class="stat-label">Connections</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" id="network-value">0</span>
+                                <span class="stat-label">Network Value</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Growth Chart -->
+                    <div class="growth-chart">
+                        <h4>Value Growth Chart</h4>
+                        <div id="chart-container">
+                            <canvas id="growth-canvas" width="300" height="200"></canvas>
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color linear"></span>
+                                <span>Linear Growth</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color network"></span>
+                                <span>Network Growth</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Educational Content -->
+            <div class="network-education">
+                <div class="education-grid">
+                    <div class="education-card">
+                        <h4>🔗 Direct Network Effects</h4>
+                        <p><strong>Definition:</strong> Value increases as more users join the same network</p>
+                        <p><strong>Formula:</strong> Value = n × (n-1) where n = users</p>
+                        <p><strong>Examples:</strong> Facebook, WhatsApp, LinkedIn</p>
+                        <p><strong>Why it works:</strong> Each new user can connect to all existing users</p>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h4>🔄 Indirect Network Effects</h4>
+                        <p><strong>Definition:</strong> More users on one side attract users on another side</p>
+                        <p><strong>Formula:</strong> Value = buyers × sellers × transaction_rate</p>
+                        <p><strong>Examples:</strong> Uber, Airbnb, eBay</p>
+                        <p><strong>Why it works:</strong> Two-sided markets create mutual value</p>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h4>📱 Platform Effects</h4>
+                        <p><strong>Definition:</strong> More apps attract more users, more users attract more developers</p>
+                        <p><strong>Formula:</strong> Value = users × apps × quality_factor</p>
+                        <p><strong>Examples:</strong> iOS App Store, Google Play, Steam</p>
+                        <p><strong>Why it works:</strong> Ecosystem growth benefits all participants</p>
+                    </div>
+                    
+                    <div class="education-card">
+                        <h4>⚡ Critical Mass</h4>
+                        <p><strong>Definition:</strong> Point where network value exceeds alternatives</p>
+                        <p><strong>Key insight:</strong> Early growth is slow, then accelerates rapidly</p>
+                        <p><strong>Strategy:</strong> Focus on dense networks before expanding</p>
+                        <p><strong>Example:</strong> Facebook started with college students before going global</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Real-World Examples -->
+            <div class="examples-section">
+                <h3>📊 Real-World Network Effects</h3>
+                <div class="examples-grid">
+                    <div class="example-card" onclick="showExample('facebook')">
+                        <div class="example-logo">📘</div>
+                        <h4>Facebook</h4>
+                        <p>2.9B users creating massive social network value</p>
+                        <div class="example-stats">
+                            <span>Network Type: Direct</span>
+                            <span>Started: 2004</span>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card" onclick="showExample('uber')">
+                        <div class="example-logo">🚗</div>
+                        <h4>Uber</h4>
+                        <p>Two-sided marketplace connecting riders and drivers</p>
+                        <div class="example-stats">
+                            <span>Network Type: Indirect</span>
+                            <span>Started: 2009</span>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card" onclick="showExample('ios')">
+                        <div class="example-logo">📱</div>
+                        <h4>iOS App Store</h4>
+                        <p>Platform enabling millions of apps for billions of users</p>
+                        <div class="example-stats">
+                            <span>Network Type: Platform</span>
+                            <span>Started: 2008</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="example-details" class="example-details">
+                    <h4 id="example-title"></h4>
+                    <div id="example-content"></div>
+                </div>
             </div>
         </div>
         
-        <!-- Company Analyzer Tab -->
-        <div id="analyzer" class="tab-content">
-            <h2>🔍 Company Business Model Analyzer</h2>
-            <p>Analyze any company using the frameworks from Module 3:</p>
-            
-            <div class="input-section">
-                <label for="company-name">Company Name:</label>
-                <input type="text" id="company-name" placeholder="e.g., Netflix, Uber, Amazon">
-            </div>
-            
-            <div class="input-section">
-                <label for="company-description">How does this company make money?</label>
-                <textarea id="company-description" rows="4" placeholder="Describe their revenue model, key value propositions, etc."></textarea>
-            </div>
-            
-            <button class="analyze-btn" onclick="analyzeCompany()">Analyze Company</button>
-            
-            <div id="analysis-result" class="result">
-                <h3>Analysis Results</h3>
-                <div id="analysis-content"></div>
-            </div>
-        </div>
     </div>
 
     <script>
-        let networkUsers = 0;
+        // Network Simulation State
+        let networkState = {
+            users: 0,
+            type: 'social',
+            growthData: [],
+            autoGrowthInterval: null,
+            canvas: null,
+            ctx: null,
+            svg: null
+        };
+        
+        // Network type configurations
+        const networkTypes = {
+            social: {
+                title: "Social Network Simulation",
+                description: "Each user can connect to every other user, creating exponential value growth",
+                valueFormula: (n) => n * (n - 1), // Direct connections
+                color: "#667eea"
+            },
+            marketplace: {
+                title: "Marketplace Network Simulation", 
+                description: "Two-sided market where buyers and sellers create mutual value",
+                valueFormula: (n) => Math.floor(n/2) * Math.ceil(n/2) * 2, // Buyers × Sellers
+                color: "#28a745"
+            },
+            platform: {
+                title: "Platform Ecosystem Simulation",
+                description: "Users and developers create compound value through apps and usage",
+                valueFormula: (n) => n * Math.log2(Math.max(n, 1)) * 10, // Platform effects
+                color: "#dc3545"
+            },
+            communication: {
+                title: "Communication Network Simulation",
+                description: "Value grows as more people can communicate with each other",
+                valueFormula: (n) => n * (n - 1) / 2, // Unique connections
+                color: "#fd7e14"
+            }
+        };
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            networkState.canvas = document.getElementById('growth-canvas');
+            networkState.ctx = networkState.canvas.getContext('2d');
+            networkState.svg = document.getElementById('network-svg');
+            resetSimulation();
+            drawChart();
+        });
         
         function showTab(tabName, element) {
             // Hide all tabs
@@ -402,45 +802,291 @@
             document.getElementById('model-details').style.display = 'block';
         }
         
-        function addUser() {
-            networkUsers++;
-            const networkValue = networkUsers * networkUsers;
+        // Network Effects Simulator Functions
+        function setNetworkType(type) {
+            // Clear any running auto-growth
+            if (networkState.autoGrowthInterval) {
+                clearInterval(networkState.autoGrowthInterval);
+                networkState.autoGrowthInterval = null;
+            }
             
-            document.getElementById('user-count').textContent = networkUsers;
-            document.getElementById('network-value').textContent = networkValue;
+            // Update active button
+            document.querySelectorAll('.network-type-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
             
-            // Add visual node
-            const nodesContainer = document.getElementById('network-nodes');
-            const newNode = document.createElement('div');
-            newNode.className = 'node';
-            newNode.textContent = networkUsers;
-            newNode.onclick = () => newNode.classList.toggle('connected');
-            nodesContainer.appendChild(newNode);
+            // Update network state
+            networkState.type = type;
+            const config = networkTypes[type];
+            
+            // Update UI
+            document.getElementById('network-title').textContent = config.title;
+            document.getElementById('network-description').textContent = config.description;
+            
+            // Reset and redraw
+            resetSimulation();
         }
         
-        function resetNetwork() {
-            networkUsers = 0;
-            document.getElementById('user-count').textContent = '0';
-            document.getElementById('network-value').textContent = '0';
-            document.getElementById('network-nodes').innerHTML = '';
+        function addUsers(count) {
+            for (let i = 0; i < count; i++) {
+                networkState.users++;
+                const value = calculateNetworkValue(networkState.users);
+                networkState.growthData.push({
+                    users: networkState.users,
+                    networkValue: value,
+                    linearValue: networkState.users * 10 // Linear baseline
+                });
+            }
+            
+            updateDisplay();
+            drawNetworkGraph();
+            drawChart();
         }
         
-        function analyzeCompany() {
-            const companyName = document.getElementById('company-name').value;
-            const description = document.getElementById('company-description').value;
+        function calculateNetworkValue(users) {
+            const config = networkTypes[networkState.type];
+            return Math.round(config.valueFormula(users));
+        }
+        
+        function updateDisplay() {
+            const users = networkState.users;
+            const connections = networkState.type === 'social' || networkState.type === 'communication' 
+                ? Math.round(users * (users - 1) / 2)
+                : users > 1 ? Math.floor(users * 1.5) : 0;
+            const value = calculateNetworkValue(users);
             
-            if (!companyName || !description) {
-                alert('Please fill in both company name and description');
+            document.getElementById('user-count').textContent = users;
+            document.getElementById('connections').textContent = connections;
+            document.getElementById('network-value').textContent = value;
+        }
+        
+        function drawNetworkGraph() {
+            const svg = networkState.svg;
+            const users = Math.min(networkState.users, 12); // Limit visual nodes
+            
+            // Clear existing
+            svg.innerHTML = '';
+            
+            if (users === 0) return;
+            
+            const config = networkTypes[networkState.type];
+            const centerX = 150;
+            const centerY = 125;
+            const radius = 80;
+            
+            // Create nodes
+            const nodes = [];
+            for (let i = 0; i < users; i++) {
+                const angle = (i * 2 * Math.PI) / users;
+                const x = centerX + radius * Math.cos(angle);
+                const y = centerY + radius * Math.sin(angle);
+                nodes.push({ x, y, id: i });
+                
+                // Draw node
+                const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                circle.setAttribute('cx', x);
+                circle.setAttribute('cy', y);
+                circle.setAttribute('r', 8);
+                circle.setAttribute('fill', config.color);
+                circle.setAttribute('stroke', 'white');
+                circle.setAttribute('stroke-width', 2);
+                svg.appendChild(circle);
+            }
+            
+            // Draw connections based on network type
+            if (networkState.type === 'social' && users > 1) {
+                // Full mesh network
+                for (let i = 0; i < users; i++) {
+                    for (let j = i + 1; j < users; j++) {
+                        drawConnection(svg, nodes[i], nodes[j], config.color);
+                    }
+                }
+            } else if (networkState.type === 'marketplace' && users > 1) {
+                // Connect buyers to sellers (alternating)
+                for (let i = 0; i < users; i += 2) {
+                    for (let j = 1; j < users; j += 2) {
+                        if (i !== j) {
+                            drawConnection(svg, nodes[i], nodes[j], config.color);
+                        }
+                    }
+                }
+            } else if (networkState.type === 'platform' && users > 2) {
+                // Hub and spoke model
+                const hub = nodes[0];
+                for (let i = 1; i < users; i++) {
+                    drawConnection(svg, hub, nodes[i], config.color);
+                }
+            } else if (networkState.type === 'communication' && users > 1) {
+                // Partial mesh - not everyone connected to everyone
+                for (let i = 0; i < users; i++) {
+                    const connections = Math.min(3, users - 1);
+                    for (let j = 1; j <= connections; j++) {
+                        const targetIndex = (i + j) % users;
+                        if (targetIndex !== i) {
+                            drawConnection(svg, nodes[i], nodes[targetIndex], config.color);
+                        }
+                    }
+                }
+            }
+        }
+        
+        function drawConnection(svg, node1, node2, color) {
+            const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            line.setAttribute('x1', node1.x);
+            line.setAttribute('y1', node1.y);
+            line.setAttribute('x2', node2.x);
+            line.setAttribute('y2', node2.y);
+            line.setAttribute('stroke', color);
+            line.setAttribute('stroke-width', 1);
+            line.setAttribute('opacity', 0.6);
+            svg.appendChild(line);
+        }
+        
+        function drawChart() {
+            const ctx = networkState.ctx;
+            const canvas = networkState.canvas;
+            const data = networkState.growthData;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (data.length === 0) return;
+            
+            const padding = 40;
+            const width = canvas.width - 2 * padding;
+            const height = canvas.height - 2 * padding;
+            
+            // Find max values for scaling
+            const maxUsers = Math.max(...data.map(d => d.users));
+            const maxValue = Math.max(...data.map(d => d.networkValue));
+            
+            // Draw axes
+            ctx.strokeStyle = '#ddd';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(padding, padding);
+            ctx.lineTo(padding, canvas.height - padding);
+            ctx.lineTo(canvas.width - padding, canvas.height - padding);
+            ctx.stroke();
+            
+            // Draw grid
+            ctx.strokeStyle = '#f0f0f0';
+            for (let i = 1; i <= 5; i++) {
+                const y = padding + (height * i) / 5;
+                ctx.beginPath();
+                ctx.moveTo(padding, y);
+                ctx.lineTo(canvas.width - padding, y);
+                ctx.stroke();
+            }
+            
+            if (data.length > 1) {
+                // Draw linear growth line
+                ctx.strokeStyle = '#28a745';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                data.forEach((point, index) => {
+                    const x = padding + (width * point.users) / maxUsers;
+                    const y = canvas.height - padding - (height * point.linearValue) / maxValue;
+                    if (index === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                });
+                ctx.stroke();
+                
+                // Draw network growth line
+                const config = networkTypes[networkState.type];
+                ctx.strokeStyle = config.color;
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                data.forEach((point, index) => {
+                    const x = padding + (width * point.users) / maxUsers;
+                    const y = canvas.height - padding - (height * point.networkValue) / maxValue;
+                    if (index === 0) ctx.moveTo(x, y);
+                    else ctx.lineTo(x, y);
+                });
+                ctx.stroke();
+            }
+            
+            // Draw labels
+            ctx.fillStyle = '#666';
+            ctx.font = '12px Arial';
+            ctx.fillText('Users', canvas.width - 30, canvas.height - 10);
+            ctx.save();
+            ctx.translate(15, canvas.height / 2);
+            ctx.rotate(-Math.PI / 2);
+            ctx.fillText('Value', 0, 0);
+            ctx.restore();
+        }
+        
+        function resetSimulation() {
+            networkState.users = 0;
+            networkState.growthData = [];
+            
+            if (networkState.autoGrowthInterval) {
+                clearInterval(networkState.autoGrowthInterval);
+                networkState.autoGrowthInterval = null;
+            }
+            
+            updateDisplay();
+            drawNetworkGraph();
+            drawChart();
+        }
+        
+        function autoGrow() {
+            if (networkState.autoGrowthInterval) {
+                clearInterval(networkState.autoGrowthInterval);
+                networkState.autoGrowthInterval = null;
                 return;
             }
             
-            let analysis = `<h4>Analysis for ${companyName}:</h4>`;
-            analysis += `<p><strong>Business Description:</strong> ${description}</p>`;
-            analysis += `<p><strong>Framework Application:</strong> Based on your description, this company likely uses multiple business models. Consider how they create value, capture value, and whether they benefit from network effects.</p>`;
-            analysis += `<p><strong>Next Steps:</strong> Try to identify specific revenue streams, customer segments, and competitive advantages using the Module 3 frameworks.</p>`;
+            networkState.autoGrowthInterval = setInterval(() => {
+                if (networkState.users < 50) {
+                    addUsers(1);
+                } else {
+                    clearInterval(networkState.autoGrowthInterval);
+                    networkState.autoGrowthInterval = null;
+                }
+            }, 300);
+        }
+        
+        function showExample(company) {
+            const examples = {
+                facebook: {
+                    title: "Facebook: Direct Network Effects",
+                    content: `
+                        <p><strong>How it works:</strong> Each user that joins Facebook can connect to every other user, creating exponential value growth.</p>
+                        <p><strong>Growth Strategy:</strong> Started with college students to create dense networks before expanding.</p>
+                        <p><strong>Network Value:</strong> With 2.9B users, Facebook has approximately 4.2 trillion potential connections.</p>
+                        <p><strong>Business Impact:</strong> Network effects create high switching costs - users stay because their friends are there.</p>
+                        <p><strong>Formula:</strong> Value ≈ n × (n-1) where n = number of active users</p>
+                    `
+                },
+                uber: {
+                    title: "Uber: Indirect Network Effects", 
+                    content: `
+                        <p><strong>How it works:</strong> More riders attract more drivers, and more drivers attract more riders.</p>
+                        <p><strong>Two-sided Market:</strong> Value created by matching supply (drivers) with demand (riders).</p>
+                        <p><strong>Growth Strategy:</strong> Initially subsidized both sides to reach critical mass in each city.</p>
+                        <p><strong>Network Value:</strong> Faster pickup times and better coverage as density increases.</p>
+                        <p><strong>Formula:</strong> Value ≈ drivers × riders × utilization_rate</p>
+                    `
+                },
+                ios: {
+                    title: "iOS App Store: Platform Effects",
+                    content: `
+                        <p><strong>How it works:</strong> More iPhone users attract more app developers, more apps attract more users.</p>
+                        <p><strong>Ecosystem Growth:</strong> Each participant benefits from the success of others.</p>
+                        <p><strong>Growth Strategy:</strong> Apple invested heavily in developer tools and marketing.</p>
+                        <p><strong>Network Value:</strong> 1.8 million apps available to 1+ billion iOS users.</p>
+                        <p><strong>Formula:</strong> Value ≈ users × apps × quality_factor</p>
+                    `
+                }
+            };
             
-            document.getElementById('analysis-content').innerHTML = analysis;
-            document.getElementById('analysis-result').style.display = 'block';
+            const example = examples[company];
+            document.getElementById('example-title').textContent = example.title;
+            document.getElementById('example-content').innerHTML = example.content;
+            document.getElementById('example-details').style.display = 'block';
         }
     </script>
 </body>
