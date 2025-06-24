@@ -1,35 +1,35 @@
-# BADM 350 AI-Enhanced Learning Tools
+# BADM 350 Business Model Explorer
 
-## 🚀 Interactive Learning Apps for Business Strategy Education
+## 🚀 Interactive Learning Tool for Digital Business Models
 
-This repository contains AI-enhanced learning tools designed for BADM 350 (Information Systems for Managers) Module 3: E-commerce, Business Models, and Network Effects.
+This repository contains the Business Model Explorer, an AI-enhanced learning tool designed for BADM 350 (Information Systems for Managers) Module 3: E-commerce, Business Models, and Network Effects.
 
 ### 🌟 Live Demo
 
-**[Visit the Interactive Learning Tools](https://vishalsachdev.github.io/badm350-ai-learning-tools/)**
+**[Try the Business Model Explorer](https://vishalsachdev.github.io/badm350-ai-learning-tools/)**
 
-### 📁 Contents
+### 📁 What's Included
 
-- **Business Model Explorer** - Interactive tool for understanding digital business models
-- **AI Discussion Enhancer** - Smart prompts and peer assessment tools  
-- **Network Effects Game** - Strategic simulation demonstrating Metcalfe's Law
+- **Business Model Explorer** - Interactive tool for understanding six core digital business models
+- **Real Company Examples** - Netflix, Spotify, Amazon, Google, Salesforce case studies
+- **Network Effects Visualization** - Interactive demonstration of Metcalfe's Law
 
 ### 🎯 Learning Objectives
 
-These tools help students:
-- Identify and classify digital business models (Freemium, Subscription, Marketplace, etc.)
-- Understand network effects and their strategic impact
-- Apply Long Tail economics concepts to real businesses
-- Analyze companies using strategic frameworks
-- Engage in meaningful peer learning and assessment
+This tool helps students:
+- Identify and classify six core digital business models (Freemium, Subscription, Marketplace, Advertising, SaaS, Platform)
+- Understand network effects and their strategic impact on business value
+- Apply business model analysis frameworks to real companies
+- Analyze competitive advantages created by different model choices
+- Experience hands-on exploration of digital business strategy
 
 ### 🎮 Features
 
-- **🤖 AI-Powered**: Adaptive learning that adjusts to student pace and style
-- **🎯 Interactive**: Hands-on exploration of business concepts
-- **👥 Collaborative**: Enhanced peer learning and assessment tools
-- **📱 Responsive**: Works seamlessly on all devices
-- **🎪 Gamified**: Achievement badges and progress tracking
+- **🏢 Six Business Models**: Detailed exploration of Freemium, Subscription, Marketplace, Advertising, SaaS, and Platform models
+- **🏆 Real Examples**: Case studies from industry leaders like Netflix, Spotify, Amazon, Google, and Salesforce
+- **📊 Network Effects**: Interactive visualization showing how network effects create exponential value
+- **🔍 Analysis Framework**: Tools for analyzing any company's business model and strategy
+- **📱 Mobile Friendly**: Works seamlessly on all devices and screen sizes
 
 ### 🛠 Usage
 
